@@ -1,0 +1,26 @@
+<h1>show</h1>
+
+
+<dl>
+  <dt>Common Names</dt>
+  <dd>
+    <ul>
+      <% animal.cn.each do |cn| %>
+        <li>
+          <%= cn %>
+        </li>
+      <% end %>
+    </ul>
+  </dd>
+
+  <dt>Species</dt>
+  <dd><%= animal.species %></dd>
+
+  <dt>Classes</dt>
+  <dd>
+    <ul>
+      <li><%= animal.object_class.first %></li>
+    </ul>
+  </dd>
+</dl>
+

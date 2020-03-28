@@ -1,0 +1,25 @@
+<h1>index</h1>
+
+<table>
+  <caption>Animals</caption>
+  <thead>
+    <tr>
+      <th>Common Name</th>
+      <th>Species</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% animals.each do |animal| %>
+      <tr>
+        <td>
+          <a href="/animals/<%= animal.cn.first.downcase %>">
+            <%= animal.cn.first %>
+          </a>
+        </td>
+        <td>
+          <%= animal.species %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
