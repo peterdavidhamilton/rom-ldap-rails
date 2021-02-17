@@ -1,18 +1,8 @@
-# README
+# ROM-LDAP in Rails
 
-```
-rails new my-app
+This code is a demonstration of how to use the [rom-rb adapter for LDAP][rom-ldap] in ruby on rails.
 
-rails db:create
+If you would like to test it out, the model in the rails app can be used with the docker containers in [rom-ldap][rom-ldap].
+Or, alternatively, you can model your own data and point to an existing LDAP server.
 
-rails db:seed
-
-LDAPURI=ldap://localhost:3389 \
-LDAPBINDDN='cn=Directory Manager' \
-LDAPBINDPW=topsecret \
-LDAPDIR=./config/ldif \
-DEBUG=y \
-rails ldap:modify
-
-rails server
-```
+[rom-ldap]: https://gitlab.com/peterdavidhamilton/rom-ldap
