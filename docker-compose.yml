@@ -1,0 +1,32 @@
+---
+version: '2.4'
+
+
+# https://docs.docker.com/compose/networking/#use-a-pre-existing-network
+# $ docker network ls
+networks:
+  default:
+    external:
+      name: docker_rom-ldap-network
+
+
+services:
+  rom-ldap-rails:
+    container_name: rom_ldap_rails
+    build:
+      context: .
+    volumes:
+      - .:/usr/app
+      - ./tmp/bundler:/usr/local/bundle
+    ports:
+      - 3002:3000
+    environment:
+      - TZ
+      - LOCALE
+      - LDAPURI=ldap://cn=admin,dc=rom,dc=ldap:topsecret@openldap
+      - RAILS_ENV=development
+    command: rails server
+    tty: true
+    stdin_open: true
+    networks:
+      - default
